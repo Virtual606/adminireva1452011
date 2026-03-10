@@ -755,8 +755,8 @@ async function saveProduct(){
   };
   if(!data.name||!data.number){toast('⚠️ يرجى ملء الاسم والرقم');return;}
 
-  const btn=document.querySelector('#productModal .sub-btn');
-  btn.textContent='جاري الحفظ...';btn.disabled=true;
+  const btn=document.querySelector('#productModal .m-save');
+  if(btn){btn.textContent='جاري الحفظ...';btn.disabled=true;}
 
   if(editId){
     try{
@@ -792,7 +792,7 @@ async function saveProduct(){
       toast('❌ فشل الحفظ: '+e.message);
     }
   }
-  btn.textContent='حفظ';btn.disabled=false;
+  if(btn){btn.textContent='💾 حفظ';btn.disabled=false;}
 }
 
 async function deleteProduct(id){
